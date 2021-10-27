@@ -17,6 +17,7 @@ function app(people) {
       searchResults = searchByName(people);
       break;
     case "no":
+      searchResults = searchByTrait(people);
       // TODO: search by traits
       break;
     default:
@@ -72,7 +73,9 @@ function mainMenu(person, people) {
 //Ideally you will have a function for each trait.
 /////////////////////////////////////////////////////////////////
 //#region
-
+function searchByTrait(people) {
+   let userInput = promptFor("Please input trait to search by.");
+}
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", autoValid);
@@ -137,8 +140,9 @@ function displayPerson(person) {
 //this function will continue to loop until the user enters something that is not an empty string("") or is considered valid based off the callback function(valid).
 function promptFor(question, valid) {
   let isValid;
+  let response;
   do {
-    let response = prompt(question).trim();
+    response = prompt(question).trim();
     isValid = valid(response);
   } while (response === "" || isValid === false);
   return response;
