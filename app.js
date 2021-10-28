@@ -82,10 +82,13 @@ function searchByTrait(people) {
   } else if (userInput === "occupation") {
     searchByOccupation(people);
   } else if (userInput === "gender") {
-    let userChoose = prompt("male or female")
-  } 
+    searchByGender(people);
+  } else if (userInput === "weight") {
+    searchByWeight(people);
+  }
 }
-searchByTrait(people);
+alert(people)
+
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", autoValid);
@@ -102,6 +105,7 @@ function searchByName(people) {
     }
   });
   // TODO: find the person single person object using the name they entered.
+  console.log(foundPerson);
   return foundPerson;
 }
 
@@ -117,10 +121,12 @@ function searchByEyeColor(people) {
     }
  });
  console.log(foundPeople);
+ return foundPeople;
+ 
 }
 
 function searchByHeight(people) {
-  let userHeight  = promptFor("Please enter Height", autoValid)
+  let userHeight  = parseInt(promptFor("Please enter Height", autoValid))
   let foundPeople = people.filter(function (potentialMatch) {
     if (potentialMatch.height === userHeight) {
       return true;
@@ -130,6 +136,7 @@ function searchByHeight(people) {
     }
   });
   console.log(foundPeople);
+  return foundPeople;
 }
 
 function searchByOccupation(people) {
@@ -142,7 +149,36 @@ function searchByOccupation(people) {
       return false;
     }
   });
-  console.log(foundPeople)
+  console.log(foundPeople);
+  return foundPeople;
+}
+
+function searchByWeight(people){
+  let userWeight = parseInt(promptFor("Weight", autoValid))
+  let foundPeople = people.filter(function(potentialMatch) {
+    if (potentialMatch.weight === userWeight) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  console.log(foundPeople);
+  return foundPeople;
+}
+
+function searchByGender(people){
+  let userGender = promptFor("gender", autoValid)
+  let foundPeople = people.filter(function(potentialMatch) {
+    if (potentialMatch.gender = userGender) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  console.log(foundPeople);
+  return foundPeople;
 }
 //TODO: add other trait filter functions here.
 
