@@ -86,8 +86,8 @@ function searchByTrait(people) {
   } else if (userInput === "weight") {
     searchByWeight(people);
   }
-}
-alert(people)
+} 
+
 
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
@@ -105,7 +105,7 @@ function searchByName(people) {
     }
   });
   // TODO: find the person single person object using the name they entered.
-  console.log(foundPerson);
+console.log(foundPerson)
   return foundPerson;
 }
 
@@ -120,9 +120,8 @@ function searchByEyeColor(people) {
       return false
     }
  });
- console.log(foundPeople);
+ displayPeople(foundPeople);
  return foundPeople;
- 
 }
 
 function searchByHeight(people) {
@@ -135,7 +134,7 @@ function searchByHeight(people) {
       return false;
     }
   });
-  console.log(foundPeople);
+  displayPeople(foundPeople);
   return foundPeople;
 }
 
@@ -149,7 +148,7 @@ function searchByOccupation(people) {
       return false;
     }
   });
-  console.log(foundPeople);
+ displayPeople(foundPeople);
   return foundPeople;
 }
 
@@ -163,7 +162,7 @@ function searchByWeight(people){
       return false;
     }
   });
-  console.log(foundPeople);
+displayPeople(foundPeople);
   return foundPeople;
 }
 
@@ -177,7 +176,7 @@ function searchByGender(people){
       return false;
     }
   });
-  console.log(foundPeople);
+ displayPeople(foundPeople);
   return foundPeople;
 }
 //TODO: add other trait filter functions here.
