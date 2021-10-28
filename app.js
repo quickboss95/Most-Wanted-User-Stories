@@ -77,16 +77,15 @@ function searchByTrait(people) {
    let userInput = promptFor("Please input trait to search by.", autoValid);
   if(userInput === "eye color") {
     searchByEyeColor(people);
-  } else if (userInput === "hair color") {
-    let userChoose = prompt("What color hair?")
+  } else if (userInput === "height") {
+    searchByHeight(people);
   } else if (userInput === "occupation") {
-    let userChoose = prompt("what occupation?")
+    searchByOccupation(people);
   } else if (userInput === "gender") {
     let userChoose = prompt("male or female")
   } 
 }
 searchByTrait(people);
-
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", autoValid);
@@ -114,10 +113,36 @@ function searchByEyeColor(people) {
       return true;
     }
     else{
-      return false;
+      return false
     }
  });
- console.log(foundPeople)
+ console.log(foundPeople);
+}
+
+function searchByHeight(people) {
+  let userHeight  = promptFor("Please enter Height", autoValid)
+  let foundPeople = people.filter(function (potentialMatch) {
+    if (potentialMatch.height === userHeight) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  console.log(foundPeople);
+}
+
+function searchByOccupation(people) {
+  let userOccupation = promptFor("Occupation", autoValid)
+  let foundPeople = people.filter(function (potentialMatch) {
+    if (potentialMatch.occupation === userOccupation) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  console.log(foundPeople)
 }
 //TODO: add other trait filter functions here.
 
