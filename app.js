@@ -56,6 +56,7 @@ function mainMenu(person, people) {
       // TODO: get person's family
       break;
     case "descendants":
+      searchDescendant(people, person[0]);
       // TODO: get person's descendants
       break;
     case "restart":
@@ -89,15 +90,9 @@ function searchByTrait(people) {
   }
   let userChoice = promptFor("Would you like to redefine your search?", autoValid);
   if (userChoice === "yes") {
-<<<<<<< HEAD
    people = searchByTrait(people)
   }
    return people
-=======
-    people=searchByTrait(people)
-  }
-    return people
->>>>>>> a1593391ece7302b908cb9ce1f71a453e45a811d
   }
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
@@ -143,6 +138,7 @@ function searchByHeight(people) {
       return false;
     }
   });
+ 
   displayPeople(foundPeople);
   return foundPeople;
 }
@@ -195,6 +191,19 @@ function searchByGender(people){
 
 //Display functions.
 //Functions for user interface.
+
+function searchDescendant(people, foundPerson) {
+let descendantInfo = people.filter(function(potentialMatch) {
+  if (potentialMatch.parents[0] === foundPerson.id || potentialMatch.parents[1] === foundPerson.id) {
+    return true;
+  }
+  else{
+    return false;
+  }
+})
+console.log(descendantInfo);
+alert(descendantInfo);
+}
 /////////////////////////////////////////////////////////////////
 //#region
 
@@ -219,17 +228,10 @@ function displayPerson(person) {
   personInfo += "Weight:" + person[0].weight + "\n";
   personInfo += "Occupation:" + person[0].occupation + "\n";
   // TODO: finish getting the rest of the information to display.
-<<<<<<< HEAD
   alert(personInfo);  
 }
 
 
-=======
-  
-  alert(personInfo);
-  
-}
->>>>>>> a1593391ece7302b908cb9ce1f71a453e45a811d
 //#endregion
 
 //Validation functions.
