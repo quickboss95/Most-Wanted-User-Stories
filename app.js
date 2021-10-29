@@ -75,19 +75,48 @@ function mainMenu(person, people) {
 //#region
 function searchByTrait(people) {
    let userInput = promptFor("Please input trait to search by.", autoValid);
+   let thePeople = people
   if(userInput === "eye color") {
-    searchByEyeColor(people);
+    people = searchByEyeColor(people);
   } else if (userInput === "height") {
-    searchByHeight(people);
+    people = searchByHeight(people);
   } else if (userInput === "occupation") {
-    searchByOccupation(people);
+    people =searchByOccupation(people);
   } else if (userInput === "gender") {
-    searchByGender(people);
+    people = searchByGender(people);
   } else if (userInput === "weight") {
-    searchByWeight(people);
+    people = searchByWeight(people);
   }
-} 
+  let userChoice = promptFor("Would you like to redefine your search?", autoValid);
+  if (userChoice === "yes") {
+    searchByTrait(people)
+  }
+    return thePeople
+  }
 
+ function refineSearch() {
+  let userChoice = promptFor("What trait would you like to search by? 1 for Eye Color 2\n 2 for height\n 3 for Occupation\n 4 for Gender\n 5 for Weight", autoValid);
+  switch(userChoice) {
+    case "1":
+      people = searchByEyeColor(people)
+      break;
+      case "2":
+      people = searchByHeight(people)
+      break;
+      case "3":
+      people = searchByOccupation(people)
+      break;
+      case "4":
+      people = searchByGender(people)
+      break;
+      case "5":
+      people = searchByWeight(people)
+      break;
+      default:
+        return mainMenu(person,people);
+  }
+
+}
 
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
@@ -105,7 +134,6 @@ function searchByName(people) {
     }
   });
   // TODO: find the person single person object using the name they entered.
-console.log(foundPerson)
   return foundPerson;
 }
 
@@ -169,7 +197,7 @@ displayPeople(foundPeople);
 function searchByGender(people){
   let userGender = promptFor("gender", autoValid)
   let foundPeople = people.filter(function(potentialMatch) {
-    if (potentialMatch.gender = userGender) {
+    if (potentialMatch.gender === userGender) {
       return true;
     }
     else{
