@@ -76,7 +76,6 @@ function mainMenu(person, people) {
 //#region
 function searchByTrait(people) {
    let userInput = promptFor("Please input trait to search by.", autoValid);
-   let thePeople = people
   if(userInput === "eye color") {
     people = searchByEyeColor(people);
   } else if (userInput === "height") {
@@ -90,7 +89,7 @@ function searchByTrait(people) {
   }
   let userChoice = promptFor("Would you like to redefine your search?", autoValid);
   if (userChoice === "yes") {
-    searchByTrait(people)
+    people=searchByTrait(people)
   }
     return people
   }
