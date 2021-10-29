@@ -49,6 +49,7 @@ function mainMenu(person, people) {
 
   switch (displayOption) {
     case "info":
+      displayPerson(person);
       // TODO: get person's info
       break;
     case "family":
@@ -184,6 +185,7 @@ function searchByGender(people){
 }
 //TODO: add other trait filter functions here.
 
+
 //#endregion
 
 //Display functions.
@@ -207,6 +209,10 @@ function displayPerson(person) {
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Gender:" + person.gender + "\n";
+  personInfo += "Height:" + person.height + "\n";
+  personInfo += "Weight:" + person.weight + "\n";
+  personInfo += "Occupation:" + person.occupation + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
 }
