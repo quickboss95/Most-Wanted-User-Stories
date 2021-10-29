@@ -40,9 +40,9 @@ function mainMenu(person, people) {
 
   let displayOption = promptFor(
     "Found " +
-      person.firstName +
+      person[0].firstName +
       " " +
-      person.lastName +
+      person[0].lastName +
       " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'",
     autoValid
   );
@@ -76,7 +76,6 @@ function mainMenu(person, people) {
 //#region
 function searchByTrait(people) {
    let userInput = promptFor("Please input trait to search by.", autoValid);
-   let thePeople = people
   if(userInput === "eye color") {
     people = searchByEyeColor(people);
   } else if (userInput === "height") {
@@ -90,9 +89,9 @@ function searchByTrait(people) {
   }
   let userChoice = promptFor("Would you like to redefine your search?", autoValid);
   if (userChoice === "yes") {
-    searchByTrait(people)
+   people = searchByTrait(people)
   }
-    return thePeople
+   return people
   }
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
@@ -207,15 +206,16 @@ function displayPeople(people) {
 function displayPerson(person) {
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  personInfo += "Gender:" + person.gender + "\n";
-  personInfo += "Height:" + person.height + "\n";
-  personInfo += "Weight:" + person.weight + "\n";
-  personInfo += "Occupation:" + person.occupation + "\n";
+  let personInfo = "First Name: " + person[0].firstName + "\n";
+  personInfo += "Last Name: " + person[0].lastName + "\n";
+  personInfo += "Gender:" + person[0].gender + "\n";
+  personInfo += "Height:" + person[0].height + "\n";
+  personInfo += "Weight:" + person[0].weight + "\n";
+  personInfo += "Occupation:" + person[0].occupation + "\n";
   // TODO: finish getting the rest of the information to display.
-  alert(personInfo);
+  alert(personInfo);  
 }
+
 
 //#endregion
 
