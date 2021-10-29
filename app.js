@@ -93,31 +93,6 @@ function searchByTrait(people) {
   }
     return thePeople
   }
-
- function refineSearch() {
-  let userChoice = promptFor("What trait would you like to search by? 1 for Eye Color 2\n 2 for height\n 3 for Occupation\n 4 for Gender\n 5 for Weight", autoValid);
-  switch(userChoice) {
-    case "1":
-      people = searchByEyeColor(people)
-      break;
-      case "2":
-      people = searchByHeight(people)
-      break;
-      case "3":
-      people = searchByOccupation(people)
-      break;
-      case "4":
-      people = searchByGender(people)
-      break;
-      case "5":
-      people = searchByWeight(people)
-      break;
-      default:
-        return mainMenu(person,people);
-  }
-
-}
-
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", autoValid);
