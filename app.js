@@ -89,9 +89,15 @@ function searchByTrait(people) {
   }
   let userChoice = promptFor("Would you like to redefine your search?", autoValid);
   if (userChoice === "yes") {
+<<<<<<< HEAD
    people = searchByTrait(people)
   }
    return people
+=======
+    people=searchByTrait(people)
+  }
+    return people
+>>>>>>> a1593391ece7302b908cb9ce1f71a453e45a811d
   }
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
@@ -213,10 +219,17 @@ function displayPerson(person) {
   personInfo += "Weight:" + person[0].weight + "\n";
   personInfo += "Occupation:" + person[0].occupation + "\n";
   // TODO: finish getting the rest of the information to display.
+<<<<<<< HEAD
   alert(personInfo);  
 }
 
 
+=======
+  
+  alert(personInfo);
+  
+}
+>>>>>>> a1593391ece7302b908cb9ce1f71a453e45a811d
 //#endregion
 
 //Validation functions.
