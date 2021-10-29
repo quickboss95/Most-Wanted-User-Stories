@@ -49,6 +49,7 @@ function mainMenu(person, people) {
 
   switch (displayOption) {
     case "info":
+      displayPerson(person);
       // TODO: get person's info
       break;
     case "family":
@@ -75,20 +76,24 @@ function mainMenu(person, people) {
 //#region
 function searchByTrait(people) {
    let userInput = promptFor("Please input trait to search by.", autoValid);
+   let thePeople = people
   if(userInput === "eye color") {
-    searchByEyeColor(people);
+    people = searchByEyeColor(people);
   } else if (userInput === "height") {
-    searchByHeight(people);
+    people = searchByHeight(people);
   } else if (userInput === "occupation") {
-    searchByOccupation(people);
+    people =searchByOccupation(people);
   } else if (userInput === "gender") {
-    searchByGender(people);
+    people = searchByGender(people);
   } else if (userInput === "weight") {
-    searchByWeight(people);
+    people = searchByWeight(people);
   }
-} 
-
-
+  let userChoice = promptFor("Would you like to redefine your search?", autoValid);
+  if (userChoice === "yes") {
+    searchByTrait(people)
+  }
+    return people
+  }
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
 function searchByName(people) {
   let firstName = promptFor("What is the person's first name?", autoValid);
@@ -105,7 +110,6 @@ function searchByName(people) {
     }
   });
   // TODO: find the person single person object using the name they entered.
-console.log(foundPerson)
   return foundPerson;
 }
 
@@ -169,7 +173,7 @@ displayPeople(foundPeople);
 function searchByGender(people){
   let userGender = promptFor("gender", autoValid)
   let foundPeople = people.filter(function(potentialMatch) {
-    if (potentialMatch.gender = userGender) {
+    if (potentialMatch.gender === userGender) {
       return true;
     }
     else{
@@ -180,6 +184,7 @@ function searchByGender(people){
   return foundPeople;
 }
 //TODO: add other trait filter functions here.
+
 
 //#endregion
 
@@ -204,10 +209,15 @@ function displayPerson(person) {
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Gender:" + person.gender + "\n";
+  personInfo += "Height:" + person.height + "\n";
+  personInfo += "Weight:" + person.weight + "\n";
+  personInfo += "Occupation:" + person.occupation + "\n";
   // TODO: finish getting the rest of the information to display.
+  
   alert(personInfo);
+  
 }
-
 //#endregion
 
 //Validation functions.
