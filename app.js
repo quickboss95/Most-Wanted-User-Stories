@@ -83,7 +83,7 @@ function searchByTrait(people) {
     people = searchByHeight(people);
   } else if (userInput === "occupation") {
     people =searchByOccupation(people);
-  } else if (userInput === "gender") {
+  } else if (userInput === "gender") {s
     people = searchByGender(people);
   } else if (userInput === "weight") {
     people = searchByWeight(people);
@@ -192,18 +192,22 @@ function searchByGender(people){
 //Display functions.
 //Functions for user interface.
 
-function searchDescendant(people, foundPerson) {
-let descendantInfo = people.filter(function(potentialMatch) {
-  if (potentialMatch.parents[0] === foundPerson.id || potentialMatch.parents[1] === foundPerson.id) {
+  function searchDescendant(people, foundPerson) {
+let descendant = people.filter(function(potentialMatch) {
+  if (potentialMatch.parents[0] === foundPerson.id || potentialMatch.parents[1] === foundPerson.id) 
+  {
     return true;
   }
   else{
     return false;
   }
+
 })
-console.log(descendantInfo);
-alert(descendantInfo);
-}
+displayPeople(descendant);
+return descendant;
+/* console.log(descendantInfo)
+ alert(descendantInfo[0].firstName + ' ' + descendantInfo[0].lastName);  */
+}  
 /////////////////////////////////////////////////////////////////
 //#region
 
