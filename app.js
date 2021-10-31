@@ -53,6 +53,7 @@ function mainMenu(person, people) {
       // TODO: get person's info
       break;
     case "family":
+      searchFamily(people, person[0])
       // TODO: get person's family
       break;
     case "descendants":
@@ -205,9 +206,23 @@ let descendant = people.filter(function(potentialMatch) {
 })
 displayPeople(descendant);
 return descendant;
-/* console.log(descendantInfo)
- alert(descendantInfo[0].firstName + ' ' + descendantInfo[0].lastName);  */
-}  
+  }
+
+  function searchFamily(people, foundPerson) {
+    let immediateFamily = people.filter(function(potentialMatch) {
+      if (potentialMatch.parents[0] === foundPerson.id || potentialMatch.parents[1] === foundPerson.id || potentialMatch.currentSpouse === foundPerson.id) 
+      {
+        return true;
+      }
+      else{
+        return false;
+      }
+    
+    })
+    displayPeople(immediateFamily);
+    return immediateFamily;
+      }
+  
 /////////////////////////////////////////////////////////////////
 //#region
 
